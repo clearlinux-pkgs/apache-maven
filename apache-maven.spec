@@ -133,11 +133,6 @@ Maven is available under the [Apache License, Version 2.0](http://www.apache.org
 %prep
 %setup -q -n apache-maven-3.3.9
 
-# not really used during build, but a precaution
-#rm maven-ant-tasks-*.jar
-
-sed -i 's:\r::' apache-maven/src/conf/settings.xml
-
 # Update shell scripts to use unversioned classworlds
 sed -i -e s:'-classpath "${M2_HOME}"/boot/plexus-classworlds-\*.jar':'-classpath "${M2_HOME}"/boot/plexus-classworlds.jar':g \
         apache-maven/src/bin/mvn*
@@ -160,7 +155,6 @@ python3 /usr/share/java-utils/mvn_build.py -f
 %install
 rm -rf %{buildroot}
 xmvn-install  -R .xmvn-reactor -n maven -d %{buildroot}
-ls %{buildroot}/usr/share/apache-maven/lib
 
 # Uncompress tarball 
 tar -xf apache-maven/target/apache-maven-3.3.9-bin.tar.gz
