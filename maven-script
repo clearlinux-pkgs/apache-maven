@@ -16,5 +16,5 @@ if [ -f /usr/share/java-utils/java-functions ] ; then
   set_javacmd
 fi
 
-export M2_HOME="${M2_HOME:-/usr/share/maven}"
+export M2_HOME="${M2_HOME:-/usr/share/apache-maven}"
 export JAVA_HOME; $M2_HOME/bin/@@CMD@@ "$@"
