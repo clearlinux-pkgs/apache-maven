@@ -150,7 +150,7 @@ python3 /usr/share/java-utils/mvn_package.py :apache-maven __noinstall
 
 %build
 python3 /usr/share/java-utils/mvn_file.py ":{*}:jar:" maven/@1 /usr/share/apache-maven/lib/@1
-python3 /usr/share/java-utils/mvn_build.py -f
+python3 /usr/share/java-utils/mvn_build.py -f -X
 
 %install
 rm -rf %{buildroot}
@@ -158,7 +158,7 @@ xmvn-install  -R .xmvn-reactor -n maven -d %{buildroot}
 
 # Uncompress tarball 
 tar -xf apache-maven/target/apache-maven-3.3.9-bin.tar.gz
-cp -pr apache-maven-3.3.9/lib/* %{buildroot}/usr/share/apache-maven/lib
+#cp -pr apache-maven-3.3.9/lib/* %{buildroot}/usr/share/apache-maven/lib
 cp -pr apache-maven-3.3.9/conf %{buildroot}/usr/share/apache-maven
 cp -pr apache-maven-3.3.9/bin %{buildroot}/usr/share/apache-maven
 
@@ -182,6 +182,46 @@ mkdir -p  %{buildroot}/usr/share/apache-maven/boot/
 ln -sf $(build-classpath plexus/classworlds) \
     %{buildroot}/usr/share/apache-maven/boot/plexus-classworlds.jar
 
+# Create symlinks of jasr provided by several ppackages
+# TODO: commons-cli, commons-io and commons-codec
+cd %buildroot/usr/share/apache-maven/lib
+build-jar-repository -s -p . \
+         aether/aether-api \
+         aether/aether-connector-basic \
+         aether/aether-impl \
+         aether/aether-spi \
+         aether/aether-transport-wagon \
+         aether/aether-util \
+         aopalliance \
+         atinject \
+         cdi-api \
+         commons-cli \
+         commons-codec \
+         commons-io \
+         commons-lang \
+         commons-lang3 \
+         commons-logging \
+         google-guice-no_aop \
+         guava \
+         httpcomponents/httpclient \
+         httpcomponents/httpcore \
+         jsoup/jsoup \
+         jsr-305 \
+         maven-wagon/file \
+         maven-wagon/http-shaded \
+         maven-wagon/http-shared \
+         maven-wagon/provider-api \
+         objectweb-asm/asm \
+         org.eclipse.sisu.inject \
+         org.eclipse.sisu.plexus \
+         plexus/containers-component-annotations \
+         plexus/interpolation \
+         plexus/plexus-cipher \
+         plexus/plexus-sec-dispatcher \
+         plexus/utils \
+         slf4j/api \
+         slf4j/simple \
+
 %files
 %defattr(-,root,root,-)
 /usr/bin/mvn
@@ -198,60 +238,73 @@ ln -sf $(build-classpath plexus/classworlds) \
 /usr/share/apache-maven/conf/logging/simplelogger.properties
 /usr/share/apache-maven/conf/settings.xml
 /usr/share/apache-maven/conf/toolchains.xml
-/usr/share/apache-maven/lib/aether-api-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aether-connector-basic-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aether-impl-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aether-spi-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aether-transport-wagon-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aether-util-1.0.2.v20150114.jar
-/usr/share/apache-maven/lib/aopalliance-1.0.jar
-/usr/share/apache-maven/lib/asm-any.jar
-/usr/share/apache-maven/lib/commons-cli-1.2.jar
-/usr/share/apache-maven/lib/commons-io-2.2.jar
-/usr/share/apache-maven/lib/commons-lang-2.6.jar
-/usr/share/apache-maven/lib/commons-lang3-3.4.jar
-/usr/share/apache-maven/lib/ext/README.txt
-/usr/share/apache-maven/lib/guava-18.0.jar
-/usr/share/apache-maven/lib/guice-4.0-no_aop.jar
-/usr/share/apache-maven/lib/javax.inject-1.jar
-/usr/share/apache-maven/lib/jsoup-1.7.2.jar
-/usr/share/apache-maven/lib/maven-aether-provider-3.3.9.jar
+/usr/share/apache-maven/lib/aether_aether-api.jar
+/usr/share/apache-maven/lib/aether_aether-connector-basic.jar
+/usr/share/apache-maven/lib/aether_aether-impl.jar
+/usr/share/apache-maven/lib/aether_aether-spi.jar
+/usr/share/apache-maven/lib/aether_aether-transport-wagon.jar
+/usr/share/apache-maven/lib/aether_aether-util.jar
+/usr/share/apache-maven/lib/aopalliance.jar
+/usr/share/apache-maven/lib/atinject.jar
+/usr/share/apache-maven/lib/cdi-apicdi-api.jar
+/usr/share/apache-maven/lib/commons-cli.jar
+/usr/share/apache-maven/lib/commons-codec.jar
+/usr/share/apache-maven/lib/commons-io.jar
+/usr/share/apache-maven/lib/commons-lang.jar
+/usr/share/apache-maven/lib/commons-lang3.jar
+/usr/share/apache-maven/lib/commons-logging.jar
+/usr/share/apache-maven/lib/google-guice-no_aop.jar
+/usr/share/apache-maven/lib/guava.jar
+/usr/share/apache-maven/lib/httpcomponents_httpclient.jar
+/usr/share/apache-maven/lib/httpcomponents_httpcore.jar
+/usr/share/apache-maven/lib/jsoup_jsoup.jar
+/usr/share/apache-maven/lib/jsr-305.jar
 /usr/share/apache-maven/lib/maven-aether-provider.jar
-/usr/share/apache-maven/lib/maven-artifact-3.3.9.jar
 /usr/share/apache-maven/lib/maven-artifact.jar
-/usr/share/apache-maven/lib/maven-builder-support-3.3.9.jar
 /usr/share/apache-maven/lib/maven-builder-support.jar
-/usr/share/apache-maven/lib/maven-compat-3.3.9.jar
 /usr/share/apache-maven/lib/maven-compat.jar
-/usr/share/apache-maven/lib/maven-core-3.3.9.jar
 /usr/share/apache-maven/lib/maven-core.jar
-/usr/share/apache-maven/lib/maven-embedder-3.3.9.jar
 /usr/share/apache-maven/lib/maven-embedder.jar
-/usr/share/apache-maven/lib/maven-model-3.3.9.jar
-/usr/share/apache-maven/lib/maven-model-builder-3.3.9.jar
 /usr/share/apache-maven/lib/maven-model-builder.jar
 /usr/share/apache-maven/lib/maven-model.jar
-/usr/share/apache-maven/lib/maven-plugin-api-3.3.9.jar
 /usr/share/apache-maven/lib/maven-plugin-api.jar
-/usr/share/apache-maven/lib/maven-repository-metadata-3.3.9.jar
 /usr/share/apache-maven/lib/maven-repository-metadata.jar
-/usr/share/apache-maven/lib/maven-settings-3.3.9.jar
-/usr/share/apache-maven/lib/maven-settings-builder-3.3.9.jar
 /usr/share/apache-maven/lib/maven-settings-builder.jar
 /usr/share/apache-maven/lib/maven-settings.jar
-/usr/share/apache-maven/lib/org.eclipse.sisu.inject-0.3.1.jar
-/usr/share/apache-maven/lib/org.eclipse.sisu.plexus-0.3.2.jar
-/usr/share/apache-maven/lib/plexus-cipher-1.7.jar
-/usr/share/apache-maven/lib/plexus-component-annotations-1.6.jar
-/usr/share/apache-maven/lib/plexus-interpolation-1.21.jar
-/usr/share/apache-maven/lib/plexus-sec-dispatcher-1.3.jar
-/usr/share/apache-maven/lib/plexus-utils-3.0.22.jar
-/usr/share/apache-maven/lib/slf4j-api-1.7.5.jar
-/usr/share/apache-maven/lib/slf4j-simple-1.7.5.jar
-/usr/share/apache-maven/lib/wagon-file-2.10.jar
-/usr/share/apache-maven/lib/wagon-http-2.10-shaded.jar
-/usr/share/apache-maven/lib/wagon-http-shared-2.10.jar
-/usr/share/apache-maven/lib/wagon-provider-api-2.10.jar
+/usr/share/apache-maven/lib/maven-wagon_file.jar
+/usr/share/apache-maven/lib/maven-wagon_http-shaded.jar
+/usr/share/apache-maven/lib/maven-wagon_http-shared.jar
+/usr/share/apache-maven/lib/maven-wagon_provider-api.jar
+/usr/share/apache-maven/lib/objectweb-asm_asm.jar
+/usr/share/apache-maven/lib/org.eclipse.sisu.inject.jar
+/usr/share/apache-maven/lib/org.eclipse.sisu.plexus.jar
+/usr/share/apache-maven/lib/plexus_containers-component-annotations.jar
+/usr/share/apache-maven/lib/plexus_interpolation.jar
+/usr/share/apache-maven/lib/plexus_plexus-cipher.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherarchiver.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherclassworlds.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatchercli.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatchercontainers-component-annotations.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherinteractivity-api.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherinteractivity-jline.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherinterpolation.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherio.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherplexus-build-api.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherplexus-cipher.jar
+/usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherresources.jar
+/usr/share/apache-maven/lib/plexus_utilsarchiver.jar
+/usr/share/apache-maven/lib/plexus_utilsclassworlds.jar
+/usr/share/apache-maven/lib/plexus_utilscli.jar
+/usr/share/apache-maven/lib/plexus_utilscontainers-component-annotations.jar
+/usr/share/apache-maven/lib/plexus_utilsinteractivity-api.jar
+/usr/share/apache-maven/lib/plexus_utilsinteractivity-jline.jar
+/usr/share/apache-maven/lib/plexus_utilsinterpolation.jar
+/usr/share/apache-maven/lib/plexus_utilsio.jar
+/usr/share/apache-maven/lib/plexus_utilsplexus-build-api.jar
+/usr/share/apache-maven/lib/plexus_utilsplexus-cipher.jar
+/usr/share/apache-maven/lib/plexus_utilsresources.jar
+/usr/share/apache-maven/lib/slf4j_api.jar
+/usr/share/apache-maven/lib/slf4j_simple.jar
 /usr/share/java/maven/maven-aether-provider.jar
 /usr/share/java/maven/maven-artifact.jar
 /usr/share/java/maven/maven-builder-support.jar
