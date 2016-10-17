@@ -183,7 +183,6 @@ ln -sf $(build-classpath plexus/classworlds) \
     %{buildroot}/usr/share/apache-maven/boot/plexus-classworlds.jar
 
 # Create symlinks of jasr provided by several ppackages
-# TODO: commons-cli, commons-io and commons-codec
 cd %buildroot/usr/share/apache-maven/lib
 build-jar-repository -s -p . \
          aether/aether-api \
