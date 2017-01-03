@@ -217,7 +217,7 @@ build-jar-repository -s -p . \
          plexus/interpolation \
          plexus/plexus-cipher \
          plexus/plexus-sec-dispatcher \
-         plexus/utils \
+         plexus-utils/plexus-utils \
          slf4j/api \
          slf4j/simple \
 
@@ -291,17 +291,7 @@ build-jar-repository -s -p . \
 /usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherplexus-build-api.jar
 /usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherplexus-cipher.jar
 /usr/share/apache-maven/lib/plexus_plexus-sec-dispatcherresources.jar
-/usr/share/apache-maven/lib/plexus_utilsarchiver.jar
-/usr/share/apache-maven/lib/plexus_utilsclassworlds.jar
-/usr/share/apache-maven/lib/plexus_utilscli.jar
-/usr/share/apache-maven/lib/plexus_utilscontainers-component-annotations.jar
-/usr/share/apache-maven/lib/plexus_utilsinteractivity-api.jar
-/usr/share/apache-maven/lib/plexus_utilsinteractivity-jline.jar
-/usr/share/apache-maven/lib/plexus_utilsinterpolation.jar
-/usr/share/apache-maven/lib/plexus_utilsio.jar
-/usr/share/apache-maven/lib/plexus_utilsplexus-build-api.jar
-/usr/share/apache-maven/lib/plexus_utilsplexus-cipher.jar
-/usr/share/apache-maven/lib/plexus_utilsresources.jar
+/usr/share/apache-maven/lib/plexus-utils_plexus-utils.jar
 /usr/share/apache-maven/lib/slf4j_api.jar
 /usr/share/apache-maven/lib/slf4j_simple.jar
 /usr/share/java/maven/maven-aether-provider.jar
