@@ -1,6 +1,6 @@
 Name     : apache-maven
 Version  : 3.3.9
-Release  : 9
+Release  : 10
 URL      : http://mirrors.gigenet.com/apache/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz
 Source0  : http://mirrors.gigenet.com/apache/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz
 Source1  : maven-script
