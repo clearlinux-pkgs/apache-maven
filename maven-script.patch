@@ -1,0 +1,39 @@
+From 389500d77bff5e81d94a275e0dbd29ab7641d7c2 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez <athenas.jimenez.gonzalez@intel.com>
+Date: Thu, 21 Feb 2019 17:46:55 +0000
+Subject: [PATCH] A
+
+---
+ maven-script | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+ create mode 100644 maven-script
+
+diff --git a/maven-script b/maven-script
+new file mode 100644
+index 0000000..8352c07
+--- /dev/null
++++ b/maven-script
+@@ -0,0 +1,20 @@
++#!/bin/sh
++
++# Source system prefs
++if [ -f /etc/java/maven.conf ] ; then
++  . /etc/java/maven.conf
++fi
++
++# Source user prefs
++if [ -f $HOME/.mavenrc ] ; then
++  . $HOME/.mavenrc
++fi
++
++if [ -f /usr/share/java-utils/java-functions ] ; then
++  . /usr/share/java-utils/java-functions
++  set_jvm
++  set_javacmd
++fi
++
++export M2_HOME="${M2_HOME:-/usr/share/apache-maven}"
++export JAVA_HOME; $M2_HOME/bin/@@CMD@@ "$@"
+-- 
+2.20.1
+
