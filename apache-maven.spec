@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 17
+Release  : 16
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
