@@ -1,2 +1,0 @@
-mkdir %{buildroot}
-cp -r /usr/share/apache-maven/.m2 %{buildroot}/.m2

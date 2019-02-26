@@ -1,1 +1,0 @@
-|| mvn install -Dmaven.repo.local=%{buildroot}/.m2/repository -Drat.skip=true
