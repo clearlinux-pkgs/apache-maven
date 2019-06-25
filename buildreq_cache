@@ -1,6 +1,6 @@
 3.6.0
 mvn-antlr
-mvn-antlr4-runtime
+mvn-antlr4
 mvn-apache
 mvn-apache-jar-resource-bundle
 mvn-asm

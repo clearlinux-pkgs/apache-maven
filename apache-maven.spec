@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 22
+Release  : 23
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -16,7 +16,7 @@ BuildRequires : apache-maven
 BuildRequires : mvn-aether-core
 BuildRequires : mvn-animal-sniffer
 BuildRequires : mvn-antlr
-BuildRequires : mvn-antlr4-runtime
+BuildRequires : mvn-antlr4
 BuildRequires : mvn-aopalliance
 BuildRequires : mvn-apache
 BuildRequires : mvn-apache-jar-resource-bundle
