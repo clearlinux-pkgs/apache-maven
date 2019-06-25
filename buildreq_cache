@@ -77,6 +77,8 @@ mvn-maven-scm
 mvn-maven-scm-provider-svnjava
 mvn-maven-toolchain
 mvn-mojo-parent
+mvn-mvnplugins
+mvn-nekohtml
 mvn-objenesis
 mvn-openhtmltopdf-parent
 mvn-oro
@@ -111,6 +113,7 @@ mvn-weld-api
 mvn-weld-parent
 mvn-xbean
 mvn-xercesImpl
+mvn-xercesMinimal
 mvn-xml-apis
 mvn-xmlunit
 mvn-xz

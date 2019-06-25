@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 21
+Release  : 22
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -136,6 +136,8 @@ BuildRequires : mvn-mockito-core
 BuildRequires : mvn-modello
 BuildRequires : mvn-mojo-parent
 BuildRequires : mvn-mojo-signature
+BuildRequires : mvn-mvnplugins
+BuildRequires : mvn-nekohtml
 BuildRequires : mvn-objenesis
 BuildRequires : mvn-openhtmltopdf-parent
 BuildRequires : mvn-org.eclipse.sisu.inject
@@ -183,6 +185,7 @@ BuildRequires : mvn-weld-api
 BuildRequires : mvn-weld-parent
 BuildRequires : mvn-xbean
 BuildRequires : mvn-xercesImpl
+BuildRequires : mvn-xercesMinimal
 BuildRequires : mvn-xml-apis
 BuildRequires : mvn-xmlunit
 BuildRequires : mvn-xmlunit-core
