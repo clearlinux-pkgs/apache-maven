@@ -1,1 +1,1 @@
-|| mvn install -Dmaven.repo.local=%{buildroot}/.m2/repository -Drat.skip=true -Dplatform=linux64
+install -Drat.skip=true -Dplatform=linux64 --fail-at-end

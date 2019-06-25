@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 20
+Release  : 21
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -12,10 +12,183 @@ Group    : Development/Tools
 License  : Apache-2.0 MIT
 Requires: apache-maven-bin = %{version}-%{release}
 Requires: apache-maven-data = %{version}-%{release}
-Requires: apache-maven-license = %{version}-%{release}
 BuildRequires : apache-maven
-BuildRequires : maven-dep
+BuildRequires : mvn-aether-core
+BuildRequires : mvn-animal-sniffer
+BuildRequires : mvn-antlr
+BuildRequires : mvn-antlr4-runtime
+BuildRequires : mvn-aopalliance
+BuildRequires : mvn-apache
+BuildRequires : mvn-apache-jar-resource-bundle
+BuildRequires : mvn-apache-rat
+BuildRequires : mvn-asm
+BuildRequires : mvn-autolink
+BuildRequires : mvn-avalon-framework
+BuildRequires : mvn-backport-util-concurrent
+BuildRequires : mvn-beanshell
+BuildRequires : mvn-build-helper-maven-plugin
+BuildRequires : mvn-buildnumber-maven-plugin
+BuildRequires : mvn-byte-buddy
+BuildRequires : mvn-cdi-api
+BuildRequires : mvn-checker-compat-qual
+BuildRequires : mvn-checkstyle
+BuildRequires : mvn-classworlds
+BuildRequires : mvn-commons-beanutils
+BuildRequires : mvn-commons-chain
+BuildRequires : mvn-commons-cli
+BuildRequires : mvn-commons-codec
+BuildRequires : mvn-commons-collections
+BuildRequires : mvn-commons-compress
+BuildRequires : mvn-commons-digester
+BuildRequires : mvn-commons-httpclient
+BuildRequires : mvn-commons-io
+BuildRequires : mvn-commons-jxpath
+BuildRequires : mvn-commons-lang
+BuildRequires : mvn-commons-lang3
+BuildRequires : mvn-commons-logging
+BuildRequires : mvn-commons-parent
+BuildRequires : mvn-commons-validator
+BuildRequires : mvn-decentxml
+BuildRequires : mvn-dom4j
+BuildRequires : mvn-doxia
+BuildRequires : mvn-doxia-sitetools
+BuildRequires : mvn-doxia-tools
+BuildRequires : mvn-enforcer
+BuildRequires : mvn-error_prone_annotations
+BuildRequires : mvn-extra-enforcer-rules
+BuildRequires : mvn-file-management
+BuildRequires : mvn-flexmark-java
+BuildRequires : mvn-genesis
+BuildRequires : mvn-google
+BuildRequires : mvn-google-collections
+BuildRequires : mvn-guava
+BuildRequires : mvn-guice
+BuildRequires : mvn-hamcrest
+BuildRequires : mvn-httpcomponents-client
+BuildRequires : mvn-httpcomponents-core
+BuildRequires : mvn-icu4j
+BuildRequires : mvn-j2objc-annotations
+BuildRequires : mvn-jackrabbit
+BuildRequires : mvn-jackson-annotations
+BuildRequires : mvn-jackson-core
+BuildRequires : mvn-jackson-databind
+BuildRequires : mvn-jansi
+BuildRequires : mvn-java-boot-classpath-detector
+BuildRequires : mvn-javax-servlet
+BuildRequires : mvn-javax.inject
+BuildRequires : mvn-jdom
+BuildRequires : mvn-jetty
+BuildRequires : mvn-jetty-parent
+BuildRequires : mvn-jetty-util
+BuildRequires : mvn-jna
+BuildRequires : mvn-jsch
+BuildRequires : mvn-jsch.agentproxy.connector-factory
+BuildRequires : mvn-jsch.agentproxy.core
+BuildRequires : mvn-jsch.agentproxy.pageant
+BuildRequires : mvn-jsch.agentproxy.sshagent
+BuildRequires : mvn-jsch.agentproxy.svnkit-trilead-ssh2
+BuildRequires : mvn-jsch.agentproxy.usocket-jna
+BuildRequires : mvn-jsch.agentproxy.usocket-nc
+BuildRequires : mvn-jsoup
+BuildRequires : mvn-jsr250-api
+BuildRequires : mvn-jsr305
+BuildRequires : mvn-junit
+BuildRequires : mvn-log4j
+BuildRequires : mvn-logback-classic
+BuildRequires : mvn-logback-core
+BuildRequires : mvn-logkit
+BuildRequires : mvn-maven
+BuildRequires : mvn-maven-aether-provider
+BuildRequires : mvn-maven-archiver
+BuildRequires : mvn-maven-artifact
+BuildRequires : mvn-maven-artifact-manager
+BuildRequires : mvn-maven-builder-support
+BuildRequires : mvn-maven-bundle-plugin
+BuildRequires : mvn-maven-compat
+BuildRequires : mvn-maven-core
+BuildRequires : mvn-maven-embedder
+BuildRequires : mvn-maven-error-diagnostics
+BuildRequires : mvn-maven-model
+BuildRequires : mvn-maven-model-builder
+BuildRequires : mvn-maven-monitor
+BuildRequires : mvn-maven-parent
+BuildRequires : mvn-maven-plugin-api
+BuildRequires : mvn-maven-plugin-descriptor
+BuildRequires : mvn-maven-plugin-parameter-documenter
+BuildRequires : mvn-maven-plugin-registry
+BuildRequires : mvn-maven-plugin-testing
+BuildRequires : mvn-maven-plugin-tools
+BuildRequires : mvn-maven-profile
+BuildRequires : mvn-maven-project
+BuildRequires : mvn-maven-reporting-api
+BuildRequires : mvn-maven-reporting-exec
+BuildRequires : mvn-maven-reporting-impl
+BuildRequires : mvn-maven-repository-metadata
+BuildRequires : mvn-maven-resolver
+BuildRequires : mvn-maven-scm
+BuildRequires : mvn-maven-scm-provider-svnjava
+BuildRequires : mvn-maven-settings
+BuildRequires : mvn-maven-shared
+BuildRequires : mvn-maven-slf4j-provider
+BuildRequires : mvn-maven-surefire
+BuildRequires : mvn-maven-toolchain
+BuildRequires : mvn-mockito-core
+BuildRequires : mvn-modello
+BuildRequires : mvn-mojo-parent
+BuildRequires : mvn-mojo-signature
+BuildRequires : mvn-objenesis
+BuildRequires : mvn-openhtmltopdf-parent
+BuildRequires : mvn-org.eclipse.sisu.inject
+BuildRequires : mvn-org.eclipse.sisu.plexus
+BuildRequires : mvn-oro
+BuildRequires : mvn-oss-parents
+BuildRequires : mvn-ow2
+BuildRequires : mvn-pdfbox
+BuildRequires : mvn-plexus
+BuildRequires : mvn-plexus-archiver
+BuildRequires : mvn-plexus-build-api
+BuildRequires : mvn-plexus-cipher
+BuildRequires : mvn-plexus-classworlds
+BuildRequires : mvn-plexus-cli
+BuildRequires : mvn-plexus-compiler
+BuildRequires : mvn-plexus-containers
+BuildRequires : mvn-plexus-i18n
+BuildRequires : mvn-plexus-interactivity
+BuildRequires : mvn-plexus-interpolation
+BuildRequires : mvn-plexus-io
+BuildRequires : mvn-plexus-languages
+BuildRequires : mvn-plexus-resources
+BuildRequires : mvn-plexus-utils
+BuildRequires : mvn-plexus-velocity
+BuildRequires : mvn-qdox
+BuildRequires : mvn-sequence-library
+BuildRequires : mvn-servlet-api
+BuildRequires : mvn-sisu
+BuildRequires : mvn-sisu-maven-plugin
+BuildRequires : mvn-slf4j
+BuildRequires : mvn-snakeyaml
+BuildRequires : mvn-snappy
+BuildRequires : mvn-sonatype-aether
+BuildRequires : mvn-sonatype-plexus-sec-dispatcher
+BuildRequires : mvn-sqljet
+BuildRequires : mvn-sslext
+BuildRequires : mvn-struts
+BuildRequires : mvn-svnkit
+BuildRequires : mvn-trilead-ssh2
+BuildRequires : mvn-tycho
+BuildRequires : mvn-velocity
+BuildRequires : mvn-velocity-tools
+BuildRequires : mvn-wagon
+BuildRequires : mvn-weld-api
+BuildRequires : mvn-weld-parent
+BuildRequires : mvn-xbean
+BuildRequires : mvn-xercesImpl
+BuildRequires : mvn-xml-apis
+BuildRequires : mvn-xmlunit
+BuildRequires : mvn-xmlunit-core
+BuildRequires : mvn-xz
 BuildRequires : openjdk
+BuildRequires : openjdk-dev
 Patch1: maven-script.patch
 
 %description
@@ -31,7 +204,6 @@ the License.  You may obtain a copy of the License at
 Summary: bin components for the apache-maven package.
 Group: Binaries
 Requires: apache-maven-data = %{version}-%{release}
-Requires: apache-maven-license = %{version}-%{release}
 
 %description bin
 bin components for the apache-maven package.
@@ -45,39 +217,20 @@ Group: Data
 data components for the apache-maven package.
 
 
-%package license
-Summary: license components for the apache-maven package.
-Group: Default
-
-%description license
-license components for the apache-maven package.
-
-
 %prep
 %setup -q -n apache-maven-3.6.0
 %patch1 -p1
 
 %build
-## build_prepend content
-mkdir %{buildroot}
-cp -r /usr/share/apache-maven/.m2 %{buildroot}/.m2
-## build_prepend end
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551206814
-export LDFLAGS="${LDFLAGS} -fno-lto"
-make  %{?_smp_mflags} || mvn install -Dmaven.repo.local=%{buildroot}/.m2/repository -Drat.skip=true -Dplatform=linux64
-
+mkdir %{buildroot}
+cp -r /usr/share/java/.m2 %{buildroot}/.m2
+mvn --offline -Dmaven.repo.local=%{buildroot}/.m2/repository install -Drat.skip=true -Dplatform=linux64 --fail-at-end
 
 %install
-export SOURCE_DATE_EPOCH=1551206814
-rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/apache-maven
-cp LICENSE %{buildroot}/usr/share/package-licenses/apache-maven/LICENSE
-cp apache-maven/src/main/appended-resources/META-INF/LICENSE.vm %{buildroot}/usr/share/package-licenses/apache-maven/apache-maven_src_main_appended-resources_META-INF_LICENSE.vm
-%make_install || :
+
 ## install_append content
 mkdir -p %{buildroot}/usr/share/apache-maven
 tar -xf apache-maven/target/apache-maven-3.6.0-bin.tar.gz -C %{buildroot}/usr/share/apache-maven --strip-components=1
@@ -179,8 +332,3 @@ chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script
 /usr/share/apache-maven/lib/wagon-file-3.2.0.jar
 /usr/share/apache-maven/lib/wagon-http-3.2.0-shaded.jar
 /usr/share/apache-maven/lib/wagon-provider-api-3.2.0.jar
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/apache-maven/LICENSE
-/usr/share/package-licenses/apache-maven/apache-maven_src_main_appended-resources_META-INF_LICENSE.vm
