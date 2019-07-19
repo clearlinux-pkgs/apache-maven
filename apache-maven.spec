@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 23
+Release  : 24
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -79,7 +79,6 @@ BuildRequires : mvn-javax.inject
 BuildRequires : mvn-jdom
 BuildRequires : mvn-jetty
 BuildRequires : mvn-jetty-parent
-BuildRequires : mvn-jetty-util
 BuildRequires : mvn-jna
 BuildRequires : mvn-jsch
 BuildRequires : mvn-jsch.agentproxy.connector-factory
@@ -228,7 +227,7 @@ data components for the apache-maven package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-mkdir %{buildroot}
+mkdir -p %{buildroot}
 cp -r /usr/share/java/.m2 %{buildroot}/.m2
 mvn --offline -Dmaven.repo.local=%{buildroot}/.m2/repository install -Drat.skip=true -Dplatform=linux64 --fail-at-end
 
