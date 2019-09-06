@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 24
+Release  : 25
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -12,12 +12,97 @@ Group    : Development/Tools
 License  : Apache-2.0 MIT
 Requires: apache-maven-bin = %{version}-%{release}
 Requires: apache-maven-data = %{version}-%{release}
+Requires: apache-maven-license = %{version}-%{release}
+Requires: mvn(aopalliance:aopalliance:jar) = 1.0
+Requires: mvn(com.google.code.findbugs:jsr305:jar) = 3.0.2
+Requires: mvn(com.google.errorprone:error_prone_annotations:jar) = 2.1.3
+Requires: mvn(com.google.guava:guava:jar) = 25.1.android
+Requires: mvn(com.google.inject:guice:jar:no_aop) = 4.2.1
+Requires: mvn(com.google.j2objc:j2objc-annotations:jar) = 1.1
+Requires: mvn(commons-cli:commons-cli:jar) = 1.4
+Requires: mvn(commons-io:commons-io:jar) = 2.5
+Requires: mvn(javax.annotation:jsr250-api:jar) = 1.0
+Requires: mvn(javax.enterprise:cdi-api:jar) = 1.0
+Requires: mvn(javax.inject:javax.inject:jar) = 1
+Requires: mvn(org.apache.commons:commons-lang3:jar) = 3.8.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-api:jar) = 1.3.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-connector-basic:jar) = 1.3.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-impl:jar) = 1.3.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-spi:jar) = 1.3.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-transport-wagon:jar) = 1.3.1
+Requires: mvn(org.apache.maven.resolver:maven-resolver-util:jar) = 1.3.1
+Requires: mvn(org.apache.maven.shared:maven-shared-utils:jar) = 3.2.1
+Requires: mvn(org.apache.maven.wagon:wagon-file:jar) = 3.2.0
+Requires: mvn(org.apache.maven.wagon:wagon-http:jar:shaded) = 3.2.0
+Requires: mvn(org.apache.maven.wagon:wagon-provider-api:jar) = 3.2.0
+Requires: mvn(org.apache.maven:maven-artifact:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-builder-support:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-compat:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-core:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-embedder:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-model-builder:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-model:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-plugin-api:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-repository-metadata:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-resolver-provider:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-settings-builder:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-settings:jar) = 3.6.0
+Requires: mvn(org.apache.maven:maven-slf4j-provider:jar) = 3.6.0
+Requires: mvn(org.checkerframework:checker-compat-qual:jar) = 2.0.0
+Requires: mvn(org.codehaus.mojo:animal-sniffer-annotations:jar) = 1.14
+Requires: mvn(org.codehaus.plexus:plexus-component-annotations:jar) = 1.7.1
+Requires: mvn(org.codehaus.plexus:plexus-interpolation:jar) = 1.25
+Requires: mvn(org.codehaus.plexus:plexus-utils:jar) = 3.1.0
+Requires: mvn(org.eclipse.sisu:org.eclipse.sisu.inject:jar) = 0.3.3
+Requires: mvn(org.eclipse.sisu:org.eclipse.sisu.plexus:jar) = 0.3.3
+Requires: mvn(org.fusesource.jansi:jansi:jar) = 1.17.1
+Requires: mvn(org.slf4j:jcl-over-slf4j:jar) = 1.7.25
+Requires: mvn(org.slf4j:slf4j-api:jar) = 1.7.25
+Requires: mvn(org.sonatype.plexus:plexus-cipher:jar) = 1.7
+Requires: mvn(org.sonatype.plexus:plexus-sec-dispatcher:jar) = 1.4
 BuildRequires : apache-maven
-BuildRequires : mvn-aether-core
+BuildRequires : buildreq-mvn
+BuildRequires : mvn(aopalliance:aopalliance:jar) = 1.0
+BuildRequires : mvn(com.google.code.findbugs:jsr305:jar) = 2.0.1
+BuildRequires : mvn(com.google.guava:guava:jar) = 25.1.android
+BuildRequires : mvn(commons-codec:commons-codec:jar) = 1.11
+BuildRequires : mvn(commons-io:commons-io:jar) = 2.2
+BuildRequires : mvn(javax.enterprise:cdi-api:jar) = 1.0
+BuildRequires : mvn(org.apache.httpcomponents:httpclient:jar) = 4.0.2
+BuildRequires : mvn(org.apache.httpcomponents:httpcore:jar) = 4.0.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-assembly-plugin:jar) = 3.0.0
+BuildRequires : mvn(org.apache.maven.plugins:maven-compiler-plugin:jar) = 3.7.0
+BuildRequires : mvn(org.apache.maven.plugins:maven-dependency-plugin:jar) = 3.1.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-install-plugin:jar) = 2.5.2
+BuildRequires : mvn(org.apache.maven.plugins:maven-jar-plugin:jar) = 3.1.0
+BuildRequires : mvn(org.apache.maven.plugins:maven-plugins:pom) = 24
+BuildRequires : mvn(org.apache.maven.plugins:maven-resources-plugin:jar) = 3.1.0
+BuildRequires : mvn(org.apache.maven.plugins:maven-site-plugin:jar) = 3.7.1
+BuildRequires : mvn(org.apache.maven.shared:maven-artifact-transfer:jar) = 0.9.1
+BuildRequires : mvn(org.apache.maven.shared:maven-common-artifact-filters:jar) = 1.4
+BuildRequires : mvn(org.apache.maven.shared:maven-filtering:jar) = 1.1
+BuildRequires : mvn(org.apache.maven.shared:maven-shared-utils:jar) = 0.3
+BuildRequires : mvn(org.apache.maven.shared:maven-shared-utils:jar) = 3.0.1
+BuildRequires : mvn(org.apache.maven.shared:maven-shared-utils:jar) = 3.1.0
+BuildRequires : mvn(org.apache.maven:maven-artifact:jar) = 2.2.1
+BuildRequires : mvn(org.apache.maven:maven-compat:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-core:jar) = 2.2.1
+BuildRequires : mvn(org.apache.maven:maven-model-builder:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-model:jar) = 2.0.8
+BuildRequires : mvn(org.apache.maven:maven-model:jar) = 2.2.1
+BuildRequires : mvn(org.apache.maven:maven-plugin-api:jar) = 2.2.1
+BuildRequires : mvn(org.apache.maven:maven-repository-metadata:jar) = 2.2.1
+BuildRequires : mvn(org.apache.maven:maven-settings-builder:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-settings:jar) = 2.2.1
+BuildRequires : mvn(org.eclipse.aether:aether-util:jar) = 0.9.0.M2
+BuildRequires : mvn(org.jdom:jdom2:jar) = 2.0.6
+BuildRequires : mvn(org.jsoup:jsoup:jar) = 1.10.2
+BuildRequires : mvn(org.jsoup:jsoup:jar) = 1.8.3
+BuildRequires : mvn(org.sonatype.sisu:sisu-guice:jar:noaop) = 2.1.7
+BuildRequires : mvn(org.sonatype.sisu:sisu-inject-plexus:jar) = 1.4.2
 BuildRequires : mvn-animal-sniffer
 BuildRequires : mvn-antlr
 BuildRequires : mvn-antlr4
-BuildRequires : mvn-aopalliance
 BuildRequires : mvn-apache
 BuildRequires : mvn-apache-jar-resource-bundle
 BuildRequires : mvn-apache-rat
@@ -29,19 +114,16 @@ BuildRequires : mvn-beanshell
 BuildRequires : mvn-build-helper-maven-plugin
 BuildRequires : mvn-buildnumber-maven-plugin
 BuildRequires : mvn-byte-buddy
-BuildRequires : mvn-cdi-api
 BuildRequires : mvn-checker-compat-qual
 BuildRequires : mvn-checkstyle
 BuildRequires : mvn-classworlds
 BuildRequires : mvn-commons-beanutils
 BuildRequires : mvn-commons-chain
 BuildRequires : mvn-commons-cli
-BuildRequires : mvn-commons-codec
 BuildRequires : mvn-commons-collections
 BuildRequires : mvn-commons-compress
 BuildRequires : mvn-commons-digester
 BuildRequires : mvn-commons-httpclient
-BuildRequires : mvn-commons-io
 BuildRequires : mvn-commons-jxpath
 BuildRequires : mvn-commons-lang
 BuildRequires : mvn-commons-lang3
@@ -61,11 +143,8 @@ BuildRequires : mvn-flexmark-java
 BuildRequires : mvn-genesis
 BuildRequires : mvn-google
 BuildRequires : mvn-google-collections
-BuildRequires : mvn-guava
 BuildRequires : mvn-guice
 BuildRequires : mvn-hamcrest
-BuildRequires : mvn-httpcomponents-client
-BuildRequires : mvn-httpcomponents-core
 BuildRequires : mvn-icu4j
 BuildRequires : mvn-j2objc-annotations
 BuildRequires : mvn-jackrabbit
@@ -88,9 +167,7 @@ BuildRequires : mvn-jsch.agentproxy.sshagent
 BuildRequires : mvn-jsch.agentproxy.svnkit-trilead-ssh2
 BuildRequires : mvn-jsch.agentproxy.usocket-jna
 BuildRequires : mvn-jsch.agentproxy.usocket-nc
-BuildRequires : mvn-jsoup
 BuildRequires : mvn-jsr250-api
-BuildRequires : mvn-jsr305
 BuildRequires : mvn-junit
 BuildRequires : mvn-log4j
 BuildRequires : mvn-logback-classic
@@ -99,19 +176,11 @@ BuildRequires : mvn-logkit
 BuildRequires : mvn-maven
 BuildRequires : mvn-maven-aether-provider
 BuildRequires : mvn-maven-archiver
-BuildRequires : mvn-maven-artifact
 BuildRequires : mvn-maven-artifact-manager
-BuildRequires : mvn-maven-builder-support
 BuildRequires : mvn-maven-bundle-plugin
-BuildRequires : mvn-maven-compat
-BuildRequires : mvn-maven-core
-BuildRequires : mvn-maven-embedder
 BuildRequires : mvn-maven-error-diagnostics
-BuildRequires : mvn-maven-model
-BuildRequires : mvn-maven-model-builder
 BuildRequires : mvn-maven-monitor
 BuildRequires : mvn-maven-parent
-BuildRequires : mvn-maven-plugin-api
 BuildRequires : mvn-maven-plugin-descriptor
 BuildRequires : mvn-maven-plugin-parameter-documenter
 BuildRequires : mvn-maven-plugin-registry
@@ -122,13 +191,10 @@ BuildRequires : mvn-maven-project
 BuildRequires : mvn-maven-reporting-api
 BuildRequires : mvn-maven-reporting-exec
 BuildRequires : mvn-maven-reporting-impl
-BuildRequires : mvn-maven-repository-metadata
 BuildRequires : mvn-maven-resolver
 BuildRequires : mvn-maven-scm
 BuildRequires : mvn-maven-scm-provider-svnjava
-BuildRequires : mvn-maven-settings
 BuildRequires : mvn-maven-shared
-BuildRequires : mvn-maven-slf4j-provider
 BuildRequires : mvn-maven-surefire
 BuildRequires : mvn-maven-toolchain
 BuildRequires : mvn-mockito-core
@@ -164,7 +230,6 @@ BuildRequires : mvn-plexus-velocity
 BuildRequires : mvn-qdox
 BuildRequires : mvn-sequence-library
 BuildRequires : mvn-servlet-api
-BuildRequires : mvn-sisu
 BuildRequires : mvn-sisu-maven-plugin
 BuildRequires : mvn-slf4j
 BuildRequires : mvn-snakeyaml
@@ -190,7 +255,6 @@ BuildRequires : mvn-xmlunit
 BuildRequires : mvn-xmlunit-core
 BuildRequires : mvn-xz
 BuildRequires : openjdk
-BuildRequires : openjdk-dev
 Patch1: maven-script.patch
 
 %description
@@ -206,6 +270,7 @@ the License.  You may obtain a copy of the License at
 Summary: bin components for the apache-maven package.
 Group: Binaries
 Requires: apache-maven-data = %{version}-%{release}
+Requires: apache-maven-license = %{version}-%{release}
 
 %description bin
 bin components for the apache-maven package.
@@ -219,6 +284,14 @@ Group: Data
 data components for the apache-maven package.
 
 
+%package license
+Summary: license components for the apache-maven package.
+Group: Default
+
+%description license
+license components for the apache-maven package.
+
+
 %prep
 %setup -q -n apache-maven-3.6.0
 %patch1 -p1
@@ -228,14 +301,65 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 mkdir -p %{buildroot}
-cp -r /usr/share/java/.m2 %{buildroot}/.m2
-mvn --offline -Dmaven.repo.local=%{buildroot}/.m2/repository install -Drat.skip=true -Dplatform=linux64 --fail-at-end
+cp -r /usr/share/java/.m2 ~/.m2 || :
+mvn --offline package
 
 %install
 
+mkdir -p %{buildroot}/usr/share/package-licenses/apache-maven
+cp LICENSE %{buildroot}/usr/share/package-licenses/apache-maven/LICENSE
+cp apache-maven/src/main/appended-resources/META-INF/LICENSE.vm %{buildroot}/usr/share/package-licenses/apache-maven/apache-maven_src_main_appended-resources_META-INF_LICENSE.vm
+for targetdir in $(find . -type d -name target); do
+pushd $targetdir
+export GROUP_PATH=$(xml sel -t -v '/_:project/_:groupId' -v '/_:project/_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g' | head -1)
+export ARTIFACT_ID=$(xml sel -t -v '/_:project/_:artifactId' ../pom.xml | head -1)
+export VERSION=$(xml sel -t -v '/_:project/_:version' -v '/_:project/_:parent/_:version' ../pom.xml | head -1)
+export DEPLOY_PATH=%{buildroot}/usr/share/java/.m2/repository/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}
+mkdir -p ${DEPLOY_PATH}
+shopt -s nullglob
+for jarfile in ${ARTIFACT_ID}*.jar; do
+cp -p "${jarfile}" ${DEPLOY_PATH}/
+done
+rm -f ${DEPLOY_PATH}/${ARTIFACT_ID}-${VERSION}-sources.jar
+cp -p ../pom.xml ${DEPLOY_PATH}/${ARTIFACT_ID}-${VERSION}.pom
+popd
+done
 ## install_append content
 mkdir -p %{buildroot}/usr/share/apache-maven
-tar -xf apache-maven/target/apache-maven-3.6.0-bin.tar.gz -C %{buildroot}/usr/share/apache-maven --strip-components=1
+shopt -s nullglob
+for tarfile in apache-maven/target/apache-maven-*-bin.tar.gz; do
+tar -xf "${tarfile}" -C %{buildroot}/usr/share/apache-maven --strip-components=1 --wildcards "*/bin/*"
+tar -xf "${tarfile}" -C %{buildroot}/usr/share/apache-maven --strip-components=1 --wildcards "*/conf/*"
+mkdir -p %{buildroot}/usr/share/apache-maven/lib
+for fulljar in $(tar -tf "${tarfile}" --wildcards "*/lib/*.jar"); do
+pushd %{buildroot}/usr/share/apache-maven/lib
+jarfile=$(basename ${fulljar})
+repopath=$(find /usr/share/java/.m2/repository %{buildroot}/usr/share/java/.m2/repository -type f -name ${jarfile} | head -1)
+if [[ -f ${repopath} ]]; then
+ln -s ${repopath/*\/usr\/share/..\/..}
+basename=$(basename ${jarfile} .jar)
+stem=${repopath##*/usr/share/java/.m2/repository}
+stem=$(dirname ${stem})
+version=$(basename ${stem})
+stem=$(dirname ${stem})
+artifact=$(basename ${stem})
+stem=$(dirname ${stem})
+org=${stem#/}
+classifier=${basename#${artifact}-${version}}
+classifier=${classifier#-}
+version=${version//-/.}
+org=${org//\//.}
+if ! [[ -z "${classifier}" ]];
+then classifier=":${classifier}"
+fi
+echo Requires: "mvn(${org}:${artifact}:jar${classifier}) = ${version}"
+fi
+popd
+done
+done
+CLASSWORLDSVERSION=$(xml sel -t -v '/_:project/_:properties/_:classWorldsVersion' pom.xml)
+mkdir -p %{buildroot}/usr/share/apache-maven/boot/
+ln -s ../../java/.m2/repository/org/codehaus/plexus/plexus-classworlds/${CLASSWORLDSVERSION}/plexus-classworlds-${CLASSWORLDSVERSION}.jar %{buildroot}/usr/share/apache-maven/boot/
 mkdir -p %{buildroot}/usr/bin
 for cmd in mvnDebug mvnyjp; do
 sed s/@@CMD@@/$cmd/ maven-script >%{buildroot}/usr/bin/$cmd
@@ -257,15 +381,6 @@ chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script
 
 %files data
 %defattr(-,root,root,-)
-%exclude /usr/share/apache-maven/lib/jansi-native/freebsd32/libjansi.so
-%exclude /usr/share/apache-maven/lib/jansi-native/freebsd64/libjansi.so
-%exclude /usr/share/apache-maven/lib/jansi-native/linux32/libjansi.so
-%exclude /usr/share/apache-maven/lib/jansi-native/osx/libjansi.jnilib
-%exclude /usr/share/apache-maven/lib/jansi-native/windows32/jansi.dll
-%exclude /usr/share/apache-maven/lib/jansi-native/windows64/jansi.dll
-/usr/share/apache-maven/LICENSE
-/usr/share/apache-maven/NOTICE
-/usr/share/apache-maven/README.txt
 /usr/share/apache-maven/bin/m2.conf
 /usr/share/apache-maven/bin/mvn
 /usr/share/apache-maven/bin/mvn-script
@@ -278,27 +393,20 @@ chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script
 /usr/share/apache-maven/conf/settings.xml
 /usr/share/apache-maven/conf/toolchains.xml
 /usr/share/apache-maven/lib/animal-sniffer-annotations-1.14.jar
-/usr/share/apache-maven/lib/animal-sniffer-annotations.license
 /usr/share/apache-maven/lib/aopalliance-1.0.jar
 /usr/share/apache-maven/lib/cdi-api-1.0.jar
 /usr/share/apache-maven/lib/checker-compat-qual-2.0.0.jar
-/usr/share/apache-maven/lib/checker-compat-qual.license
 /usr/share/apache-maven/lib/commons-cli-1.4.jar
 /usr/share/apache-maven/lib/commons-io-2.5.jar
 /usr/share/apache-maven/lib/commons-lang3-3.8.1.jar
 /usr/share/apache-maven/lib/error_prone_annotations-2.1.3.jar
-/usr/share/apache-maven/lib/ext/README.txt
 /usr/share/apache-maven/lib/guava-25.1-android.jar
 /usr/share/apache-maven/lib/guice-4.2.1-no_aop.jar
 /usr/share/apache-maven/lib/j2objc-annotations-1.1.jar
 /usr/share/apache-maven/lib/jansi-1.17.1.jar
-/usr/share/apache-maven/lib/jansi-native/README.txt
-/usr/share/apache-maven/lib/jansi-native/linux64/libjansi.so
 /usr/share/apache-maven/lib/javax.inject-1.jar
 /usr/share/apache-maven/lib/jcl-over-slf4j-1.7.25.jar
-/usr/share/apache-maven/lib/jcl-over-slf4j.license
 /usr/share/apache-maven/lib/jsr250-api-1.0.jar
-/usr/share/apache-maven/lib/jsr250-api.license
 /usr/share/apache-maven/lib/jsr305-3.0.2.jar
 /usr/share/apache-maven/lib/maven-artifact-3.6.0.jar
 /usr/share/apache-maven/lib/maven-builder-support-3.6.0.jar
@@ -321,16 +429,46 @@ chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script
 /usr/share/apache-maven/lib/maven-shared-utils-3.2.1.jar
 /usr/share/apache-maven/lib/maven-slf4j-provider-3.6.0.jar
 /usr/share/apache-maven/lib/org.eclipse.sisu.inject-0.3.3.jar
-/usr/share/apache-maven/lib/org.eclipse.sisu.inject.license
 /usr/share/apache-maven/lib/org.eclipse.sisu.plexus-0.3.3.jar
-/usr/share/apache-maven/lib/org.eclipse.sisu.plexus.license
 /usr/share/apache-maven/lib/plexus-cipher-1.7.jar
 /usr/share/apache-maven/lib/plexus-component-annotations-1.7.1.jar
 /usr/share/apache-maven/lib/plexus-interpolation-1.25.jar
 /usr/share/apache-maven/lib/plexus-sec-dispatcher-1.4.jar
 /usr/share/apache-maven/lib/plexus-utils-3.1.0.jar
 /usr/share/apache-maven/lib/slf4j-api-1.7.25.jar
-/usr/share/apache-maven/lib/slf4j-api.license
 /usr/share/apache-maven/lib/wagon-file-3.2.0.jar
 /usr/share/apache-maven/lib/wagon-http-3.2.0-shaded.jar
 /usr/share/apache-maven/lib/wagon-provider-api-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/apache-maven/3.6.0/apache-maven-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-artifact/3.6.0/maven-artifact-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-artifact/3.6.0/maven-artifact-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-builder-support/3.6.0/maven-builder-support-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-builder-support/3.6.0/maven-builder-support-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-compat/3.6.0/maven-compat-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-compat/3.6.0/maven-compat-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-core/3.6.0/maven-core-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-core/3.6.0/maven-core-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-embedder/3.6.0/maven-embedder-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-embedder/3.6.0/maven-embedder-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-model-builder/3.6.0/maven-model-builder-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-model-builder/3.6.0/maven-model-builder-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-model/3.6.0/maven-model-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-model/3.6.0/maven-model-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-plugin-api/3.6.0/maven-plugin-api-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-plugin-api/3.6.0/maven-plugin-api-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-repository-metadata/3.6.0/maven-repository-metadata-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-repository-metadata/3.6.0/maven-repository-metadata-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-resolver-provider/3.6.0/maven-resolver-provider-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-resolver-provider/3.6.0/maven-resolver-provider-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-settings-builder/3.6.0/maven-settings-builder-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-settings-builder/3.6.0/maven-settings-builder-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-settings/3.6.0/maven-settings-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-settings/3.6.0/maven-settings-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven-slf4j-provider/3.6.0/maven-slf4j-provider-3.6.0.jar
+/usr/share/java/.m2/repository/org/apache/maven/maven-slf4j-provider/3.6.0/maven-slf4j-provider-3.6.0.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven/3.6.033/maven-3.6.033.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/apache-maven/LICENSE
+/usr/share/package-licenses/apache-maven/apache-maven_src_main_appended-resources_META-INF_LICENSE.vm

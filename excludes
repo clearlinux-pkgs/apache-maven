@@ -1,6 +1,2 @@
-/usr/share/apache-maven/lib/jansi-native/freebsd32/libjansi.so
-/usr/share/apache-maven/lib/jansi-native/freebsd64/libjansi.so
-/usr/share/apache-maven/lib/jansi-native/linux32/libjansi.so
-/usr/share/apache-maven/lib/jansi-native/osx/libjansi.jnilib
-/usr/share/apache-maven/lib/jansi-native/windows32/jansi.dll
-/usr/share/apache-maven/lib/jansi-native/windows64/jansi.dll
+# This file contains the output files that need %exclude. Full path
+# names, one per line.

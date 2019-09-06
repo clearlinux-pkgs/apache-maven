@@ -1,11 +1,51 @@
 mkdir -p %{buildroot}/usr/share/apache-maven
-tar -xf apache-maven/target/apache-maven-3.6.0-bin.tar.gz -C %{buildroot}/usr/share/apache-maven --strip-components=1
+shopt -s nullglob
+# Extract just the files we want from the tarball
+for tarfile in apache-maven/target/apache-maven-*-bin.tar.gz; do
+    tar -xf "${tarfile}" -C %{buildroot}/usr/share/apache-maven --strip-components=1 --wildcards "*/bin/*"
+    tar -xf "${tarfile}" -C %{buildroot}/usr/share/apache-maven --strip-components=1 --wildcards "*/conf/*"
+
+    # But link the jars it contains
+    mkdir -p %{buildroot}/usr/share/apache-maven/lib
+    for fulljar in $(tar -tf "${tarfile}" --wildcards "*/lib/*.jar"); do
+        pushd %{buildroot}/usr/share/apache-maven/lib
+        jarfile=$(basename ${fulljar})
+        repopath=$(find /usr/share/java/.m2/repository %{buildroot}/usr/share/java/.m2/repository -type f -name ${jarfile} | head -1)
+        if [[ -f ${repopath} ]]; then
+            ln -s ${repopath/*\/usr\/share/..\/..}
+            basename=$(basename ${jarfile} .jar)
+            stem=${repopath##*/usr/share/java/.m2/repository}
+            stem=$(dirname ${stem})
+            version=$(basename ${stem})
+            stem=$(dirname ${stem})
+            artifact=$(basename ${stem})
+            stem=$(dirname ${stem})
+            org=${stem#/}
+            classifier=${basename#${artifact}-${version}}
+            classifier=${classifier#-}
+            version=${version//-/.}
+            org=${org//\//.}
+            if ! [[ -z "${classifier}" ]];
+              then classifier=":${classifier}"
+            fi
+            echo Requires: "mvn(${org}:${artifact}:jar${classifier}) = ${version}"
+        fi
+        popd
+    done
+
+done
+
+# Link the plexus-classworlds library version we specifically need
+CLASSWORLDSVERSION=$(xml sel -t -v '/_:project/_:properties/_:classWorldsVersion' pom.xml)
+mkdir -p %{buildroot}/usr/share/apache-maven/boot/
+ln -s ../../java/.m2/repository/org/codehaus/plexus/plexus-classworlds/${CLASSWORLDSVERSION}/plexus-classworlds-${CLASSWORLDSVERSION}.jar %{buildroot}/usr/share/apache-maven/boot/
+
+# Add the scripts
 mkdir -p %{buildroot}/usr/bin
 for cmd in mvnDebug mvnyjp; do
     sed s/@@CMD@@/$cmd/ maven-script >%{buildroot}/usr/bin/$cmd
     chmod +x %{buildroot}/usr/bin/$cmd
 done
-
 sed s/@@CMD@@/mvn/ maven-script >%{buildroot}/usr/share/apache-maven/bin/mvn-script
 ln -sf ../share/apache-maven/bin/mvn-script %{buildroot}/usr/bin/mvn
 chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script

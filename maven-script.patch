@@ -1,20 +1,34 @@
-From 389500d77bff5e81d94a275e0dbd29ab7641d7c2 Mon Sep 17 00:00:00 2001
+From 56f064d519b7a89948969371749c90ec2713c831 Mon Sep 17 00:00:00 2001
 From: Athenas Jimenez <athenas.jimenez.gonzalez@intel.com>
 Date: Thu, 21 Feb 2019 17:46:55 +0000
 Subject: [PATCH] A
 
 ---
- maven-script | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ maven-script | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
  create mode 100644 maven-script
 
 diff --git a/maven-script b/maven-script
 new file mode 100644
-index 0000000..8352c07
+index 0000000..0e70ff5
 --- /dev/null
 +++ b/maven-script
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,33 @@
 +#!/bin/sh
++
++# Copyright 2019 Intel Corporation
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
 +
 +# Source system prefs
 +if [ -f /etc/java/maven.conf ] ; then
@@ -32,8 +46,7 @@ index 0000000..8352c07
 +  set_javacmd
 +fi
 +
-+export M2_HOME="${M2_HOME:-/usr/share/apache-maven}"
-+export JAVA_HOME; $M2_HOME/bin/@@CMD@@ "$@"
++export JAVA_HOME; /usr/share/apache-maven/bin/@@CMD@@ "$@"
 -- 
-2.20.1
+2.23.0
 
