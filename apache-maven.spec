@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 25
+Release  : 26
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -50,6 +50,7 @@ Requires: mvn(org.apache.maven:maven-settings:jar) = 3.6.0
 Requires: mvn(org.apache.maven:maven-slf4j-provider:jar) = 3.6.0
 Requires: mvn(org.checkerframework:checker-compat-qual:jar) = 2.0.0
 Requires: mvn(org.codehaus.mojo:animal-sniffer-annotations:jar) = 1.14
+Requires: mvn(org.codehaus.plexus:plexus-classworlds:jar)
 Requires: mvn(org.codehaus.plexus:plexus-component-annotations:jar) = 1.7.1
 Requires: mvn(org.codehaus.plexus:plexus-interpolation:jar) = 1.25
 Requires: mvn(org.codehaus.plexus:plexus-utils:jar) = 3.1.0

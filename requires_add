@@ -47,3 +47,4 @@ mvn(org.slf4j:jcl-over-slf4j:jar) = 1.7.25
 mvn(org.slf4j:slf4j-api:jar) = 1.7.25
 mvn(org.sonatype.plexus:plexus-cipher:jar) = 1.7
 mvn(org.sonatype.plexus:plexus-sec-dispatcher:jar) = 1.4
+mvn(org.codehaus.plexus:plexus-classworlds:jar)
