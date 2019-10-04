@@ -4,7 +4,7 @@
 #
 Name     : apache-maven
 Version  : 3.6.0
-Release  : 26
+Release  : 27
 URL      : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Source0  : http://mirrors.ibiblio.org/apache/maven/maven-3/3.6.0/source/apache-maven-3.6.0-src.tar.gz
 Summary  : No detailed summary available
@@ -302,7 +302,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 mkdir -p %{buildroot}
-cp -r /usr/share/java/.m2 ~/.m2 || :
+mkdir -p ~/.m2
+cp -r /usr/share/java/.m2/* ~/.m2/ || :
 mvn --offline package
 
 %install
@@ -312,9 +313,9 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/apache-maven/LICENSE
 cp apache-maven/src/main/appended-resources/META-INF/LICENSE.vm %{buildroot}/usr/share/package-licenses/apache-maven/apache-maven_src_main_appended-resources_META-INF_LICENSE.vm
 for targetdir in $(find . -type d -name target); do
 pushd $targetdir
-export GROUP_PATH=$(xml sel -t -v '/_:project/_:groupId' -v '/_:project/_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g' | head -1)
-export ARTIFACT_ID=$(xml sel -t -v '/_:project/_:artifactId' ../pom.xml | head -1)
-export VERSION=$(xml sel -t -v '/_:project/_:version' -v '/_:project/_:parent/_:version' ../pom.xml | head -1)
+export GROUP_PATH=$(xml sel -T -t -m '//_:project' --if 'boolean(_:groupId)' -v '_:groupId' --else -v '_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g')
+export ARTIFACT_ID=$(xml sel -T -t -m '//_:project' -v '_:artifactId' ../pom.xml)
+export VERSION=$(xml sel -T -t -m '//_:project' --if 'boolean(_:version)' -v '_:version' --else -v '_:parent/_:version' ../pom.xml)
 export DEPLOY_PATH=%{buildroot}/usr/share/java/.m2/repository/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}
 mkdir -p ${DEPLOY_PATH}
 shopt -s nullglob
@@ -467,7 +468,7 @@ chmod +x %{buildroot}/usr/share/apache-maven/bin/mvn-script
 /usr/share/java/.m2/repository/org/apache/maven/maven-settings/3.6.0/maven-settings-3.6.0.pom
 /usr/share/java/.m2/repository/org/apache/maven/maven-slf4j-provider/3.6.0/maven-slf4j-provider-3.6.0.jar
 /usr/share/java/.m2/repository/org/apache/maven/maven-slf4j-provider/3.6.0/maven-slf4j-provider-3.6.0.pom
-/usr/share/java/.m2/repository/org/apache/maven/maven/3.6.033/maven-3.6.033.pom
+/usr/share/java/.m2/repository/org/apache/maven/maven/3.6.0/maven-3.6.0.pom
 
 %files license
 %defattr(0644,root,root,0755)
